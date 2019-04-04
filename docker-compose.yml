@@ -2,14 +2,12 @@ version: '3'
 services:
   postgres:
     image: postgres:10.1
-    ports:
-    - 5432:5432
     volumes:
     - postgres-volume:/var/lib/postgresql/data
     environment:
     - POSTGRES_USER=ztadmin
     - POSTGRES_PASSWORD=secret
-    - POSTGRES_DB=smsmetabase
+    - POSTGRES_DB=metabase
 
   metabase:
     image: metabase/metabase:latest
@@ -24,7 +22,7 @@ services:
     environment:
     - JAVA_TIMEZONE=America/Mexico_City
     - MB_DB_TYPE=postgres
-    - MB_DB_DBNAME=smsmetabase
+    - MB_DB_DBNAME=metabase
     - MB_DB_PORT=5432
     - MB_DB_USER=ztadmin
     - MB_DB_PASS=secret
