@@ -5,8 +5,8 @@ services:
     volumes:
     - postgres-volume:/var/lib/postgresql/data
     environment:
-    - POSTGRES_USER=ztadmin
-    - POSTGRES_PASSWORD=secret
+    - POSTGRES_USER=${POSTGRES_USER}
+    - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     - POSTGRES_DB=metabase
 
   metabase:
@@ -24,8 +24,8 @@ services:
     - MB_DB_TYPE=postgres
     - MB_DB_DBNAME=metabase
     - MB_DB_PORT=5432
-    - MB_DB_USER=ztadmin
-    - MB_DB_PASS=secret
+    - MB_DB_USER=${POSTGRES_USER}
+    - MB_DB_PASS=${POSTGRES_PASSWORD}
     - MB_DB_HOST=postgres
 
 volumes:
