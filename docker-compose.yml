@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:10.1
     volumes:
-    - postgres-volume:/var/lib/postgresql/data
+    - ${POSTGRES_VOLUME}:/var/lib/postgresql/data
     environment:
     - POSTGRES_USER=${POSTGRES_USER}
     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
